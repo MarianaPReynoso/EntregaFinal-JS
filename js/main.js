@@ -8,14 +8,9 @@ let pidieronPrestamo = [
 
 const ingresonWeb = ["Virginia Castro", "Fernando Arabia", "Marisol Lopez", "José Guzman", "Josefina Perez", "Jimena Galli", "Alma Zulema", "Oliver Gomez"];
 
-
-const guardarLS = (pidieronPrestamo, pidieronPrestamo) => {
-    localStorage.setItem(pidieronPrestamo, JSON.stringify(pidieronPrestamo));
-};
-
-const cargarLS = (pidieronPrestamo) => {
-    return JSON.parse(localStorage.getItem(pidieronPrestamo));
-}
+localStorage.setItem("lista", JSON.stringify(pidieronPrestamo));
+pidieronPrestamo = localStorage.getItem("lista");
+pidieronPrestamo = JSON.parse(pidieronPrestamo);
 
 
 document.getElementById("opciones").addEventListener("change", function(e) {
@@ -85,7 +80,3 @@ console.log(numeDeCuotas);
 ingresonWeb.forEach(item => {
     console.log(item);
 })
-
-/* const datosUsuario = {nombre:nombreCompleto.value, prestamo:prestamos.value, cuotas:opcionCuota.value};
-localStorage.setItem("datosUsuario", JSON.stringify(datosUsuario));
-const datosUsuarioLS = JSON.parse(localStorage.getItem("datosUsuario")); */
