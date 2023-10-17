@@ -1,0 +1,76 @@
+/*GENERAL*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: antiquewhite;
+    align-items: center;
+}
+
+header{
+    background-color: rgb(247, 142, 44);
+}
+
+div ul li{
+    margin: 15px;
+    padding: 10px;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+main{
+    margin-top: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form p {
+    margin-bottom: 0;
+}
+
+.formulario{
+    width: 500px;
+    margin: 10px;
+}
+
+.parrafo{
+    margin-top: 5px;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divFormulario{
+    width: 500px;
+    margin: 10px;
+    display: none;
+}
+
+.boton{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: antiquewhite;
+    background-color: rgb(247, 142, 44);
+    border: none;
+}
+
+.boton:hover{
+    background-color: rgb(247, 142, 44);
+    color: antiquewhite;
+}
