@@ -6,12 +6,21 @@ let pidieronPrestamo = [
     {id: 5, alias: "Oliver Gomez", tipo: "Préstamo Simple", numCuotas: 24}
 ];
 
-const ingresonWeb = ["Virginia Castro", "Fernando Arabia", "Marisol Lopez", "José Guzman", "Josefina Perez", "Jimena Galli", "Alma Zulema", "Oliver Gomez"];
+/* const ingresonWeb = ["Virginia Castro", "Fernando Arabia", "Marisol Lopez", "José Guzman", "Josefina Perez", "Jimena Galli", "Alma Zulema", "Oliver Gomez"]; */
 
-localStorage.setItem("lista", JSON.stringify(pidieronPrestamo));
+let nombre = document.querySelector("#nombreCompleto");
+let prestamo = document.querySelector("#prestamos");
+let cuota = document.querySelector("#opcionCuota");
+
+const datosUsuario = {nombre:nombre.value, prestamo:prestamo.value, cuotas:cuota.value};
+localStorage.setItem("datosUsuario", JSON.stringify(datosUsuario)); 
+nombre.value = "";
+prestamo.value ="";
+cuota.value = "";
+
+/* localStorage.setItem("lista", JSON.stringify(pidieronPrestamo));
 pidieronPrestamo = localStorage.getItem("lista");
-pidieronPrestamo = JSON.parse(pidieronPrestamo);
-
+pidieronPrestamo = JSON.parse(pidieronPrestamo); */
 
 document.getElementById("opciones").addEventListener("change", function(e) {
     if(this.value == "1") {
@@ -28,10 +37,10 @@ document.getElementById("opciones").addEventListener("change", function(e) {
 const TNA = 138;
 const TEA = 268;
 const CFTEA = 376;
-const maximoSolicitado = 3000000;
-const tipoPrestamo = new Prestamo ("Préstamo Básico", 1000000);
+/* const maximoSolicitado = 3000000; */
+/* const tipoPrestamo = new Prestamo ("Préstamo Básico", 1000000);
 const tipoPrestamo2 = new Prestamo ("Préstamo Medio", 2000000);
-const tipoPrestamo3 = new Prestamo ("Préstamo Premium", 3000000);
+const tipoPrestamo3 = new Prestamo ("Préstamo Premium", 3000000); */
 let interesCuota; 
 
 let formularioPrestamo = document.getElementById("formularioPrestamo");
@@ -74,8 +83,8 @@ formularioPrestamo.addEventListener("submit", (e) => {
     validarCuotas()
 });
 
-const numeDeCuotas = pidieronPrestamo.find(item => item.numCuotas == 12);
-console.log(numeDeCuotas);
+const tipo = pidieronPrestamo.find(item => item.tipo == "Préstamo Premium");
+console.log(tipo);
 
 ingresonWeb.forEach(item => {
     console.log(item);
