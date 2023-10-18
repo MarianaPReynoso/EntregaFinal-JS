@@ -46,6 +46,15 @@ form p {
     margin: 10px;
 }
 
+.pAviso{
+    margin-top: -10px;
+    margin-left: -250px;
+    padding-bottom: 5px;
+    font-size: 10px;
+    color: red;
+    text-align: left;
+}
+
 .parrafo{
     margin-top: 5px;
     margin-left: 10px;

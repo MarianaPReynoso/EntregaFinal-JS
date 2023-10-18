@@ -8,25 +8,20 @@ let pidieronPrestamo = [
 
 /* const ingresonWeb = ["Virginia Castro", "Fernando Arabia", "Marisol Lopez", "José Guzman", "Josefina Perez", "Jimena Galli", "Alma Zulema", "Oliver Gomez"]; */
 
-let nombre = document.querySelector("#nombreCompleto");
-let prestamo = document.querySelector("#prestamos");
-let cuota = document.querySelector("#opcionCuota");
-
-const datosUsuario = {nombre:nombre.value, prestamo:prestamo.value, cuotas:cuota.value};
-localStorage.setItem("datosUsuario", JSON.stringify(datosUsuario)); 
-nombre.value = "";
-prestamo.value ="";
-cuota.value = "";
-
 /* localStorage.setItem("lista", JSON.stringify(pidieronPrestamo));
 pidieronPrestamo = localStorage.getItem("lista");
 pidieronPrestamo = JSON.parse(pidieronPrestamo); */
+
+solicitarPrestamo.onclick = avisar;
 
 document.getElementById("opciones").addEventListener("change", function(e) {
     if(this.value == "1") {
         document.getElementById("tipos").innerHTML = document.getElementById("tipoPrestamo").innerHTML;
         document.getElementById("montos").innerHTML = document.getElementById("montoPrestamo").innerHTML;        
         document.getElementById("cantCuotas").innerHTML = document.getElementById("numeroCuotas").innerHTML;
+        document.getElementById("tipos").style.display ="block";
+        document.getElementById("montos").style.display ="block";
+        document.getElementById("cantCuotas").style.display ="block";
     } else if(this.value == "2") {
         document.getElementById("tipos").style.display = "none";
         document.getElementById("montos").style.display = "none";
@@ -37,10 +32,6 @@ document.getElementById("opciones").addEventListener("change", function(e) {
 const TNA = 138;
 const TEA = 268;
 const CFTEA = 376;
-/* const maximoSolicitado = 3000000; */
-/* const tipoPrestamo = new Prestamo ("Préstamo Básico", 1000000);
-const tipoPrestamo2 = new Prestamo ("Préstamo Medio", 2000000);
-const tipoPrestamo3 = new Prestamo ("Préstamo Premium", 3000000); */
 let interesCuota; 
 
 let formularioPrestamo = document.getElementById("formularioPrestamo");
@@ -76,6 +67,16 @@ const validarCuotas = () => {
 
     alert(`Su préstamo de $${valorPrestamo} será devuelto en ${opcionCuota} cuotas con un interés del ${interesCuota}%. Cada cuota tendrá un valor de $${valorCuota.toFixed(2)}`)
     formularioPrestamo.onsubmit();
+
+    let nombre = document.querySelector("#nombreCompleto");
+    let prestamo = document.querySelector("#prestamos");
+    let cuota = document.querySelector("#opcionCuota");
+
+    const datosUsuario = {nombre:nombre.value, prestamo:prestamo.value, cuotas:cuota.value};
+    localStorage.setItem("datosUsuario", JSON.stringify(datosUsuario)); 
+    nombre.value = "";
+    prestamo.value ="";
+    cuota.value = "";
 }
 
 formularioPrestamo.addEventListener("submit", (e) => {
@@ -89,3 +90,5 @@ console.log(tipo);
 ingresonWeb.forEach(item => {
     console.log(item);
 })
+
+

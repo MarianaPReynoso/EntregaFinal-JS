@@ -1,5 +1,15 @@
-//aca enevnto para mensaje debajo de nombre
+function avisar () {
+    let aviso = document.getElementById("aviso");
+    let nombreCompleto = document.getElementById("nombreCompleto");
+    aviso.innerHTML = "Indique su nombre completo antes de continuar";
+    aviso.className = "pAviso"
 
+    /*   if (nombreCompleto == ""){
+        solicitarPrestamo.onclick = avisar;
+    } else {
+        aviso.innerHTML = "";
+    }  */
+}
 
 function validarMonto () {
     let recordatorio = document.getElementById("recordatorio");
@@ -7,8 +17,3 @@ function validarMonto () {
     document.getElementById("recordatorio").innerHTML = "Recuerde que el monto máximo es de $ " + lista;
     recordatorio.className = "text-danger parrafo"
 }
-
-/* function Prestamo (nombre, montoMaximo) {
-    this.nombre = nombre;
-    this.monto = montoMaximo;
-} */
