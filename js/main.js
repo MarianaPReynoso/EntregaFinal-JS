@@ -14,6 +14,13 @@ pidieronPrestamo = JSON.parse(pidieronPrestamo); */
 
 solicitarPrestamo.onclick = avisar;
 
+/* if (nombreCompleto == ""){
+    solicitarPrestamo.onclick = avisar;
+    aviso.innerHTML = "Indique su nombre completo antes de continuar";
+    aviso.className = "pAviso"
+    return false
+} */
+
 document.getElementById("opciones").addEventListener("change", function(e) {
     if(this.value == "1") {
         document.getElementById("tipos").innerHTML = document.getElementById("tipoPrestamo").innerHTML;
@@ -62,10 +69,16 @@ const validarCuotas = () => {
 
     let valorCuota = cuotaPura + interesPorCuota + interesTnaCuota + interesTeaCuota + interesCfteaCuota;
 
-    resultado2.innerHTML = "¡Los datos se enviaron correctamente!";
-    resultado2.className = "text-success parrafo";
+    /* resultado2.innerHTML = "¡Los datos se enviaron correctamente!";
+    resultado2.className = "text-success parrafo"; */
 
-    alert(`Su préstamo de $${valorPrestamo} será devuelto en ${opcionCuota} cuotas con un interés del ${interesCuota}%. Cada cuota tendrá un valor de $${valorCuota.toFixed(2)}`)
+    Swal.fire({
+        icon: 'info',
+        title: 'Estos son sus datos:',
+        text: 'Su préstamo de $${valorPrestamo} será devuelto en ${opcionCuota} cuotas con un interés del ${interesCuota}%. Cada cuota tendrá un valor de $${valorCuota.toFixed(2)}',
+    }) 
+
+/*     alert(`Su préstamo de $${valorPrestamo} será devuelto en ${opcionCuota} cuotas con un interés del ${interesCuota}%. Cada cuota tendrá un valor de $${valorCuota.toFixed(2)}`) */
     formularioPrestamo.onsubmit();
 
     let nombre = document.querySelector("#nombreCompleto");

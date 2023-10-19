@@ -1,14 +1,12 @@
 function avisar () {
     let aviso = document.getElementById("aviso");
-    let nombreCompleto = document.getElementById("nombreCompleto");
+    //let nombreCompleto = document.getElementById("nombreCompleto");
     aviso.innerHTML = "Indique su nombre completo antes de continuar";
     aviso.className = "pAviso"
 
-    /*   if (nombreCompleto == ""){
+    /* if (nombreCompleto == ""){
         solicitarPrestamo.onclick = avisar;
-    } else {
-        aviso.innerHTML = "";
-    }  */
+    } */
 }
 
 function validarMonto () {
