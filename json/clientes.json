@@ -1,0 +1,7 @@
+[
+    {"id": 1, "alias": "Virginia Castro", "tipo": "Préstamo Básico", "numCuotas": 24},
+    {"id": 2, "alias": "Fernando Arabia", "tipo": "Préstamo Premium", "numCuotas": 36},
+    {"id": 3, "alias": "Josefina Perez", "tipo": "Préstamo Premium", "numCuotas": 36},
+    {"id": 4, "alias": "Alma Zulema", "tipo": "Préstamo Simple", "numCuotas": 12},
+    {"id": 5, "alias": "Oliver Gomez", "tipo": "Préstamo Simple", "numCuotas": 24}
+]

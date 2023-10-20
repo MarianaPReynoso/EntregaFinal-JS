@@ -34,7 +34,6 @@
                 <span class="input-group-text" id="basic-addon1">Nombre completo</span>
                 <input type="text" class="form-control" id="nombreCompleto" placeholder="Nombre y apellido" aria-label="Username" aria-describedby="basic-addon1">
             </div>
-            <p class="pAviso" id="aviso"></p>
 
             <div class="input-group mb-3 formulario" id="solicitarPrestamo">
                 <label class="input-group-text"  for="inputGroupSelect01">¿Desea solicitar un préstamo?</label>
@@ -47,15 +46,14 @@
 
             <p class="formulario" id="tipos"></p>
             <p class="formulario" id="montos"></p>
-            
-            <p class="parrafo" id="recordatorio"></p>
             <p class="formulario" id="cantCuotas"></p>
+
             <button class="btn btn-outline-secondary boton" type="submit" id="button-addon1">Aceptar</button>
         </form>
         
         <div id="tipoPrestamo" class="input-group mb-3 divFormulario">
             <label class="input-group-text" for="inputGroupSelect02">Seleccione el tipo de préstamo</label>
-                <select class="form-select" id="prestamos" onchange="validarMonto()">
+                <select class="form-select" id="prestamos">
                     <option selected>-</option>
                     <option value="Préstamo Básico">Préstamo Básico (Max: $1.000.000)</option>
                     <option value="Préstamo Medio">Préstamo Medio (Max: $2.000.000)</option>
@@ -80,7 +78,6 @@
                 <option value="24">24</option>
                 <option value="36">36</option>
             </select>
-            <div id="resultado2" class="my-3 formulario"></div>
         </div>
     </main>
 

@@ -1,25 +1,13 @@
-let pidieronPrestamo = [
-    {id: 1, alias: "Virginia Castro", tipo: "Préstamo Básico", numCuotas: 24},
-    {id: 2, alias: "Fernando Arabia", tipo: "Préstamo Premium", numCuotas: 36},
-    {id: 3, alias: "Josefina Perez", tipo: "Préstamo Premium", numCuotas: 36},
-    {id: 4, alias: "Alma Zulema", tipo: "Préstamo Simple", numCuotas: 12},
-    {id: 5, alias: "Oliver Gomez", tipo: "Préstamo Simple", numCuotas: 24}
+let ingresaronWeb = [
+    {id: 1, alias: "Virginia Castro", pidioPrestamo: "SI"},
+    {id: 2, alias: "Fernando Arabia", pidioPrestamo: "SI"},
+    {id: 3, alias: "Lucía Costa", pidioPrestamo: "NO"},
+    {id: 4, alias: "Jorge Rojas", pidioPrestamo: "NO"},
+    {id: 5, alias: "Josefina Perez", pidioPrestamo: "SI"},
+    {id: 6, alias: "Esteban Allasia", pidioPrestamo: "NO"},
+    {id: 7, alias: "Alma Zulema", pidioPrestamo: "SI"},
+    {id: 8, alias: "Oliver Gomez", pidioPrestamo: "SI"}
 ];
-
-/* const ingresonWeb = ["Virginia Castro", "Fernando Arabia", "Marisol Lopez", "José Guzman", "Josefina Perez", "Jimena Galli", "Alma Zulema", "Oliver Gomez"]; */
-
-/* localStorage.setItem("lista", JSON.stringify(pidieronPrestamo));
-pidieronPrestamo = localStorage.getItem("lista");
-pidieronPrestamo = JSON.parse(pidieronPrestamo); */
-
-solicitarPrestamo.onclick = avisar;
-
-/* if (nombreCompleto == ""){
-    solicitarPrestamo.onclick = avisar;
-    aviso.innerHTML = "Indique su nombre completo antes de continuar";
-    aviso.className = "pAviso"
-    return false
-} */
 
 document.getElementById("opciones").addEventListener("change", function(e) {
     if(this.value == "1") {
@@ -46,10 +34,9 @@ let formularioPrestamo = document.getElementById("formularioPrestamo");
 const validarCuotas = () => {
     let opcionCuota = document.getElementById("opcionCuota").value;
     let valorPrestamo = parseInt(document.getElementById("saldoPrestamo").value);
-    let resultado2 = document.getElementById("resultado2");
 
     if(opcionCuota == "12"){
-        resultado2.innerHTML = interesCuota = 30;
+        interesCuota = 30;
     } else if (opcionCuota.value == "24"){
         interesCuota = 40;
     } else {
@@ -69,27 +56,21 @@ const validarCuotas = () => {
 
     let valorCuota = cuotaPura + interesPorCuota + interesTnaCuota + interesTeaCuota + interesCfteaCuota;
 
-    /* resultado2.innerHTML = "¡Los datos se enviaron correctamente!";
-    resultado2.className = "text-success parrafo"; */
-
     Swal.fire({
         icon: 'info',
-        title: 'Estos son sus datos:',
-        text: 'Su préstamo de $${valorPrestamo} será devuelto en ${opcionCuota} cuotas con un interés del ${interesCuota}%. Cada cuota tendrá un valor de $${valorCuota.toFixed(2)}',
+        title: 'Información importante:',
+        text: `Su préstamo de $${valorPrestamo} será devuelto en ${opcionCuota} cuotas con un interés del ${interesCuota}%. Cada cuota tendrá un valor de $${valorCuota.toFixed(2)}`,
+        confirmButtonColor:'rgb(247, 142, 44)',
     }) 
-
-/*     alert(`Su préstamo de $${valorPrestamo} será devuelto en ${opcionCuota} cuotas con un interés del ${interesCuota}%. Cada cuota tendrá un valor de $${valorCuota.toFixed(2)}`) */
-    formularioPrestamo.onsubmit();
 
     let nombre = document.querySelector("#nombreCompleto");
     let prestamo = document.querySelector("#prestamos");
-    let cuota = document.querySelector("#opcionCuota");
 
-    const datosUsuario = {nombre:nombre.value, prestamo:prestamo.value, cuotas:cuota.value};
+    const datosUsuario = {nombre:nombre.value, prestamo:prestamo.value, monto: valorPrestamo, cuotas:opcionCuota};
     localStorage.setItem("datosUsuario", JSON.stringify(datosUsuario)); 
     nombre.value = "";
     prestamo.value ="";
-    cuota.value = "";
+    opcionCuota.value = "";
 }
 
 formularioPrestamo.addEventListener("submit", (e) => {
@@ -97,11 +78,12 @@ formularioPrestamo.addEventListener("submit", (e) => {
     validarCuotas()
 });
 
-const tipo = pidieronPrestamo.find(item => item.tipo == "Préstamo Premium");
+const tipo = ingresaronWeb.find(item => item.pidioPrestamo == "NO");
 console.log(tipo);
 
-ingresonWeb.forEach(item => {
-    console.log(item);
+
+fetch("json/clientes.json")
+.then(respuesta => respuesta.json())
+.then(data => {
+    console.log(data);
 })
-
-
